@@ -29,9 +29,12 @@ public class Main {
 
     }
 
+    //implements recursive backtracking
     private static void checkForSets(Set<Card> currPair, Set<Card> deck) {
         if (currPair.size() == 3) {
             if (isSolution(currPair)) {
+                //Set is checking if we've already seen before automatically
+                //Better way than to use global flag?
                 SOLUTIONS.add(addSolutions(currPair));
                 SOLUTIONS_EXIST = true;
             }
@@ -41,12 +44,11 @@ public class Main {
                 currPair.add(card);
                 Set<Card> updatedDeck = new HashSet<Card>();
 
-                //not sure a better way to do this
+                //copying list each iteration -> better way to do this?
                 for (Card c: deck) {
                     updatedDeck.add(c);
                 }
                 updatedDeck.remove(card);
-                //check if we've seen this before --> set/list?
                 checkForSets(currPair, updatedDeck);
                 currPair.remove(card);
             }
