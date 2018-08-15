@@ -7,14 +7,14 @@ import java.util.Set;
 public class SetGame {
     private Set<Card> deck;
     //should this solutions be static?
-    private static Set<String> SOLUTIONS = new HashSet<String>();
+    private static Set<String> SOLUTIONS = new HashSet();
 
     public SetGame(Set<Card> deck) {
         this.deck = deck;
     }
 
     public void solve() {
-        Set<Card> currPair = new HashSet<Card>();
+        Set<Card> currPair = new HashSet();
         checkForSets(currPair, deck);
         printSolutions();
     }
@@ -23,17 +23,16 @@ public class SetGame {
     private void checkForSets(Set<Card> currPair, Set<Card> deck) {
         if (currPair.size() == 3) {
             if (isSolution(currPair)) {
-                //Set is checking if we've already seen before automatically
-                //Better way than to use global flag?
+                //TODO: Implement repeat check
                 SOLUTIONS.add(addSolutions(currPair));
             }
         }
         else {
             for (Card card : deck) {
                 currPair.add(card);
-                Set<Card> updatedDeck = new HashSet<Card>();
+                Set<Card> updatedDeck = new HashSet();
 
-                //copying list each iteration -> better way to do this?
+                //TODO: copying list each iteration -> better way to do this?
                 for (Card c: deck) {
                     updatedDeck.add(c);
                 }
