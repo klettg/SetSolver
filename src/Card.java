@@ -1,3 +1,4 @@
+
 public class Card {
     private Color myColor;
     private Shape myShape;
@@ -66,4 +67,7 @@ public class Card {
         return ((other.getMyColor() == this.getMyColor()) && (other.getMyShape() == this.getMyShape())
             && (other.getMyShade() == this.getMyShade()) && (this.getNum().equals(other.getNum())));
     }
+
+    //TODO: Override HashCode?
+    //TODO: Create method for comparing sets -> rather than using sets default
 }
