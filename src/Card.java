@@ -1,7 +1,7 @@
 public class Card {
     private Color myColor;
     private Shape myShape;
-    private int num;
+    private Integer num;
     private Shade myShade;
 
     public Card(Color color, Shape shape, Integer num, Shade shade) {
@@ -21,7 +21,7 @@ public class Card {
         return myShape;
     }
 
-    public int getNum() {
+    public Integer getNum() {
 
         return num;
     }
@@ -49,5 +49,21 @@ public class Card {
     public String toString() {
 
         return "Shape: " + this.getMyShape() + " Color: " + this.getMyColor() + " Num: " + this.getNum() + " Shade: " + this.myShade + "\n";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj == null) {
+            return false;
+        }
+
+        if (!Card.class.isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+        final Card other = (Card) obj;
+
+        return ((other.getMyColor() == this.getMyColor()) && (other.getMyShape() == this.getMyShape())
+            && (other.getMyShade() == this.getMyShade()) && (this.getNum().equals(other.getNum())));
     }
 }
