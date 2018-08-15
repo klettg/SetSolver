@@ -19,7 +19,7 @@ public class Main {
         deck.add(new Card(Card.Color.PURPLE, Card.Shape.OVAL, 2, Card.Shade.EMPTY));
         deck.add(new Card(Card.Color.GREEN, Card.Shape.SQUIGGLE, 2, Card.Shade.EMPTY));
 
-        SetGame game = new SetGame(deck);
+        SetGame game = new SetGame(new CardSet(deck));
         game.solve();
     }
 
