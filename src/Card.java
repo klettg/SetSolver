@@ -68,6 +68,19 @@ public class Card {
             && (other.getMyShade() == this.getMyShade()) && (this.getNum().equals(other.getNum())));
     }
 
-    //TODO: Override HashCode?
-    //TODO: Create method for comparing sets -> rather than using sets default
+    @Override
+    public int hashCode() {
+        int prime = 7;
+        int result = 17;
+        result =  prime * result + myShade.hashCode();
+        result = prime * result + myColor.hashCode();
+        result = prime * result + myShape.hashCode();
+        result = prime * result + num;
+        return result;
+    }
+
+    @Override
+    public Card clone() {
+        return new Card(myColor, myShape, num, myShade);
+    }
 }
